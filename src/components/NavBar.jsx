@@ -1,26 +1,23 @@
+import { NavLink } from "react-router-dom";
 import Cart from "./Cart";
-import { FaOpencart } from "react-icons/fa";
+import Logo from "./Logo";
 
 const Navbar = () => {
 
   const cartItemCount = 5;
 
-  const preventBehavior = (e) => {
-    e.preventDefault();
-  }
-
   return (
     <nav className="bg-gray-800 text-white p-4">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-lg font-semibold inline-block">
-          Ecommerce <FaOpencart className="text-xl inline-block" />
-        </div>
+        <Logo />
         <div>
-          <a href="/" className="px-4 hover:bg-gray-700 py-2 rounded" onClick={preventBehavior}>Inicio</a>
-          <a href="/categories" className="px-4 hover:bg-gray-700 py-2 rounded" onClick={preventBehavior}>Categorias</a>
-          <a href="/about" className="px-4 hover:bg-gray-700 py-2 rounded" onClick={preventBehavior}>Acerca de</a>
-          <a href="/contact" className="px-4 hover:bg-gray-700 py-2 rounded" onClick={preventBehavior}>Contacto</a>
-          <Cart cartItemCount={cartItemCount}/>
+          <NavLink to="/" className="px-4 hover:bg-gray-700 py-2 rounded" >Inicio</NavLink>
+          <NavLink to="/products/electronics" className="px-4 hover:bg-gray-700 py-2 rounded" >Electronics</NavLink>
+          <NavLink to="/products/jewelery" className="px-4 hover:bg-gray-700 py-2 rounded" >Jewelery</NavLink>
+
+          <NavLink to="/products/men's clothing" className="px-4 hover:bg-gray-700 py-2 rounded" >Men's clothing</NavLink>
+          <NavLink to="/products/women's clothing" className="px-4 hover:bg-gray-700 py-2 rounded" >women's clothing</NavLink>
+          <Cart cartItemCount={cartItemCount} />
         </div>
       </div>
     </nav>
